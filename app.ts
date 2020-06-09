@@ -1,14 +1,17 @@
-function add(n1: number, n2: number): number {
-  // if (typeof n1 === "number" && typeof number2 === "number") {
-  //   throw new Error("Incorrect input!");
-  // } it`s just ajvascript validation
+let userInput: unknown;
+let userName: string;
 
-  return n1 + n2;
+userInput = 5;
+userInput = 'Juan';
+
+// userName = userInput; // mismatch
+
+if (typeof userInput === 'string') {
+  userName = userInput;
 }
 
-const number1 = 5;
-const number2 = 2.8;
+function generateError(message: string, code: number): never {
+  throw { message, errorCode: code };
+}
 
-const result = add(number1, number2);
-
-console.log(result);
+generateError('An error occurred!', 500);
